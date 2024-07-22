@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS Verification</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+// Test için telefon numarasını girin
+const phoneNumber = '+905537259691';
+
+// Telefon numarasına doğrulama kodu gönderen fonksiyon
+function sendVerificationCode(phoneNumber) {
+  // SMS gönderim simülasyonu (gerçek bir API kullanmalısınız)
+  const verificationCode = generateVerificationCode();
+  console.log(`Doğrulama kodu ${phoneNumber} numarasına gönderildi: ${verificationCode}`);
+
+  // Doğrulama kodunu kullanıcının girdiği kontrolü (simülasyon)
+  const userEnteredCode = prompt('Lütfen doğrulama kodunu girin:');
+  if (userEnteredCode === verificationCode) {
+    console.log('Doğrulama başarılı!');
+  } else {
+    console.error('Doğrulama başarısız!');
+  }
+}
+
+// Doğrulama kodu oluşturma fonksiyonu
+function generateVerificationCode() {
+  return Math.floor(100000 + Math.random() * 900000).toString(); // 6 basamaklı kod
+}
+
+// Telefon numarasına doğrulama kodu gönderme işlemi başlat
+sendVerificationCode(phoneNumber);
+
+</script>
+
+</body>
+</html>
